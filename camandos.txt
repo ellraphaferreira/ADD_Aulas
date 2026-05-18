@@ -1,0 +1,11 @@
+## github
+
+    git clone link_do_repositorio
+    git config --global --unset-all user.name
+    git config --global --unset-all user.email
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+    git add .
+    git commit -m "mensagem"
+    git push
+

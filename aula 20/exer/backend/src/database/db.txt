@@ -1,0 +1,11 @@
+create database estoque;
+use estoque;
+
+create table pecas(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	nome_peca varchar(40),
+	codigo_peca int(15),
+	fornecedor varchar(40),
+	quantidade int(10),
+	preco_unitario varchar(40)
+);

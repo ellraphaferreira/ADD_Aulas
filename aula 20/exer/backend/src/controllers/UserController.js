@@ -9,7 +9,7 @@ export const getPeople = (req, res) => {
     })
 }
 //test
-export const createUser = (req, res) => {
+export const createPeca = (req, res) => {
     const { name,email,password } = req.body;
     try{
         connection.query('INSERT INTO user (name,email,pasword) VALUES (?,?,?)', 
@@ -27,7 +27,7 @@ export const createUser = (req, res) => {
     }
 }
 
-export const updateUser = (req, res) => {
+export const updatePeca = (req, res) => {
 
     const { id } = req.params; 
     const { name, email, password } = req.body;
@@ -47,7 +47,7 @@ export const updateUser = (req, res) => {
         }
     );
 };
-export const deleteUser = (req, res) => {
+export const deletePeca = (req, res) => {
 
     const { id } = req.params;
 
