@@ -9,3 +9,10 @@ create table pecas(
 	quantidade int(10),
 	preco_unitario varchar(40)
 );
+INSERT INTO pecas (nome_peca, codigo_peca, fornecedor, quantidade, preco_unitario)
+VALUES
+('Parafuso Sextavado', 1001, 'Metalúrgica Alfa', 250, '0.85'),
+('Rolamento 6205', 1002, 'Rolatec Industrial', 80, '15.90'),
+('Correia Dentada', 1003, 'Correias Brasil', 45, '32.50'),
+('Engrenagem Aço 20D', 1004, 'MecParts', 12, '120.00'),
+('Filtro de Óleo', 1005, 'Auto Peças Sul', 60, '18.75');

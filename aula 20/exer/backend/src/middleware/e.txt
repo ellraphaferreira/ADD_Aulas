@@ -1,0 +1,56 @@
+Exemplo usando Node.js + Express + MySQL:
+
+// middleware/verificarCodigoPeca.js
+
+const db = require('../database'); // conexão mysql
+
+async function verificarCodigoPeca(req, res, next) {
+    try {
+        const { codigo_peca } = req.body;
+
+        const sql = 'SELECT * FROM pecas WHERE codigo_peca = ?';
+
+        db.query(sql, [codigo_peca], (err, result) => {
+            if (err) {
+                return res.status(500).json({
+                    erro: 'Erro ao consultar banco'
+                });
+            }
+
+            // verifica se encontrou alguma peça
+            if (result.length > 0) {
+                return res.status(400).json({
+                    erro: 'Já existe uma peça com esse código'
+                });
+            }
+
+            // continua para o próximo middleware/controller
+            next();
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            erro: 'Erro interno'
+        });
+    }
+}
+
+module.exports = verificarCodigoPeca;
+
+Depois você usa na rota:
+
+const express = require('express');
+const router = express.Router();
+
+const verificarCodigoPeca = require('./middleware/verificarCodigoPeca');
+
+router.post('/pecas', verificarCodigoPeca, (req, res) => {
+
+    // INSERT da peça aqui
+
+    res.json({
+        mensagem: 'Peça cadastrada com sucesso'
+    });
+});
+
+module.exports = router;

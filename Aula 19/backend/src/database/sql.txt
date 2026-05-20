@@ -1,0 +1,10 @@
+create database ADD_bosch;
+use ADD_bosch;
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(40) NOT NULL,
+    email VARCHAR(100) NOT NULL ,
+    password VARCHAR(255) NOT NULL
+);
+

@@ -1,7 +1,7 @@
 import { connection } from "../database/db.js";
 
-export const getPeople = (req, res) => {
-    const users = connection.query('SELECT * FROM user', (err, results) => {
+export const getPecas = (req, res) => {
+    const users = connection.query('SELECT * FROM pecas', (err, results) => {
         if(err){
             return res.status(500).send({response: "Ocorreu algum erro"})
         }
@@ -10,17 +10,17 @@ export const getPeople = (req, res) => {
 }
 //test
 export const createPeca = (req, res) => {
-    const { name,email,password } = req.body;
+    const { nome_peca,codigo_peca,fornecedor,quantidade,preco_unitario } = req.body;
     try{
-        connection.query('INSERT INTO user (name,email,pasword) VALUES (?,?,?)', 
-            [name,email,password],
+        connection.query('INSERT INTO pecas (nome_peca,codigo_peca,fornecedor,quantidade,preco_unitario) VALUES (?,?,?,?,?)', 
+            [nome_peca,codigo_peca,fornecedor,quantidade,preco_unitario],
             (err,results) =>{
                 if(err){
                     return res.status(500).send({response: "ocorreu um erro"})
                 }
             }
         )
-        return res.status(201).send({ response: "Usuário registrado!"})
+        return res.status(201).send({ response: "Peça registrado!"})
     }
     catch{
         return res.status(500).send({ response: "Erro"})
@@ -30,12 +30,12 @@ export const createPeca = (req, res) => {
 export const updatePeca = (req, res) => {
 
     const { id } = req.params; 
-    const { name, email, password } = req.body;
+    const {nome_peca,codigo_peca,fornecedor,quantidade,preco_unitario } = req.body;
 
 
     connection.query(
-        'UPDATE user SET name = ?, email = ?, password = ? WHERE id = ?;', 
-        [ name, email, password, id],
+        'UPDATE user SET nome_peca = ?, codigo_peca = ?, fornecedor = ?, quantidade = ?, quantidade = ?;', 
+        [ nome_peca,codigo_peca,fornecedor,quantidade,quantidade],
         (err, results) => {
 
             if (err) {
@@ -43,7 +43,7 @@ export const updatePeca = (req, res) => {
                 return res.status(500).send({ response: "Ocorreu um erro no banco de dados." });
             }
 
-            return res.status(200).send({ response: "Usuário atualizado com sucesso!" });
+            return res.status(200).send({ response: "Peça atualizado com sucesso!" });
         }
     );
 };
@@ -53,7 +53,7 @@ export const deletePeca = (req, res) => {
 
 
     connection.query(
-        'DELETE FROM user WHERE id = ?;', 
+        'DELETE FROM pecas WHERE id = ?;', 
         id,
         (err, results) => {
 
@@ -62,7 +62,7 @@ export const deletePeca = (req, res) => {
                 return res.status(500).send({ response: "Ocorreu um erro no banco de dados." });
             }
 
-            return res.status(200).send({ response: "Usuário deletado com sucesso!" });
+            return res.status(200).send({ response: "Peça deletado com sucesso!" });
         }
     );
 };
