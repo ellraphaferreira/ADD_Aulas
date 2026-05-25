@@ -20,13 +20,13 @@ export function validateRegister(req,res,next){
             
         )
     }
-    if(!quantidade || quantidade.length <3 || quantidade <= 0 || quantidade.trim() == ""){
+    if(!quantidade || quantidade.length <3 || quantidade == 0){
         return res.status(400).send({response: "Revise o dado quantidade"}
 
             
         )
     }
-    if(!preco_unitario || preco_unitario.length <3 || preco_unitario <= 0 || preco_unitario.trim() == ""){
+    if(!preco_unitario || preco_unitario.length <3 || preco_unitario <= 0){
         return res.status(400).send({response: "Revise o dado preco_unitario"}
 
             
@@ -64,19 +64,33 @@ export function validateUpdate(req,res,next){
             
         )
     }
-    if(!quantidade || quantidade.length <3 || quantidade <= 0 || quantidade.trim() == ""){
+    if(!quantidade || quantidade.length <3 || quantidade == 0){
         return res.status(400).send({response: "Revise o dado quantidade"}
 
             
         )
     }
-    if(!preco_unitario || preco_unitario.length <3 || preco_unitario <= 0 || preco_unitario.trim() == ""){
+    if(!preco_unitario || preco_unitario.length <3 || preco_unitario <= 0){
         return res.status(400).send({response: "Revise o dado preco_unitario"}
 
             
         )
     }
-    next();
+   
+        connection.query('SELECT FROM user WHERE id = ?',
+            [id],
+            (err, results) => {
+                if(err){
+                    return res.status(404).send({ response: "Este usuário não foi encontrado"})
+                }
+    
+                if(results){
+                    next();
+                }
+            }
+        )
+    
+
 }
 
 export function validateDelete(req, res, next) {
