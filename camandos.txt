@@ -9,3 +9,6 @@
     git commit -m "mensagem"
     git push
 
+
+    NPM INIT 
+    //INTALAR PACKAGE

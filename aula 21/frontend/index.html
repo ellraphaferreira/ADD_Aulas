@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-3">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Biblioteca</title>
+
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="logo">
+        <i class="fa-solid fa-book-open"></i>
+
+        <div>
+          <h2>Controle de</h2>
+          <h2>Leituras</h2>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a class="active">
+          <i class="fa-solid fa-house"></i>
+          Dashboard
+        </a>
+
+        <a>
+          <i class="fa-solid fa-book"></i>
+          Livros
+        </a>
+
+        <a>
+          <i class="fa-solid fa-plus"></i>
+          Adicionar Livro
+        </a>
+
+        <a>
+          <i class="fa-solid fa-chart-column"></i>
+          Estatísticas
+        </a>
+      </nav>
+
+    </div>
+
+    <div class="profile">
+
+      <div class="avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div>
+        <strong>Leitor(a)</strong>
+        <p>Minha Biblioteca</p>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="main-content">
+
+    <div class="top-bar">
+
+      <h1>Meus Livros</h1>
+
+      <div class="top-actions">
+
+        <div class="search-box">
+          <input type="text" placeholder="Buscar livro...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <button id="abrirCadastro">
+          Abrir Cadastro
+        </button>
+        <!-- Modal -->
+      <div class="modal" id="modalCadastro">
+        <div class="modal-content">
+          <span class="close" id="fechar">&times;</span>
+
+          <h2>Cadastro</h2>
+
+          <input type="text" placeholder="Nome">
+          <input type="email" placeholder="E-mail">
+          <input type="password" placeholder="Senha">
+
+          <button>Cadastrar</button>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+
+    <!-- TABELA -->
+    <div class="table-card">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Páginas</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <!-- LIVROS VÃO AQUI -->
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </main>
+
+  <!-- ESTATÍSTICAS -->
+  <aside class="stats-panel">
+
+    <div class="card">
+
+      <h3>📊 Estatísticas da Biblioteca</h3>
+
+      <div class="mini-cards">
+
+        <div class="mini-card blue">
+          <h2>0</h2>
+          <p>Livros cadastrados</p>
+        </div>
+
+        <div class="mini-card green">
+          <h2>0</h2>
+          <p>Livros concluídos</p>
+        </div>
+
+      </div>
+
+      <div class="pages-box">
+        <h2>0</h2>
+        <p>Páginas lidas</p>
+      </div>
+
+      <div class="progress-box">
+
+        <div>
+          <p>Progresso geral</p>
+          <strong>0%</strong>
+        </div>
+
+        <div class="circle">
+          0%
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card genres">
+
+      <h3>Gêneros mais lidos</h3>
+
+      <div class="genre">
+        <span>Ficção</span>
+
+        <div class="bar">
+          <div style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="genre">
+        <span>Tecnologia</span>
+
+        <div class="bar">
+          <div style="width:0%"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </aside>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>

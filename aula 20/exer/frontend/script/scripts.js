@@ -8,7 +8,7 @@ async function fetchData() {
 }
 
 function setTableData() {
-    const table = document.getElementById('table-data')
+    const table = document.getElementById('table-card')
 
     table.innerHTML = ""
 
